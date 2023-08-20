@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/TheCount/go-structfilter/structfilter"
+	"github.com/haoli000/go-structfilter/structfilter"
 )
 
 // User represents a user entry in a user database.

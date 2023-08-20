@@ -1,3 +1,3 @@
-module github.com/TheCount/go-structfilter
+module github.com/haoli000/go-structfilter
 
 go 1.13
