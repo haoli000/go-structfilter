@@ -110,3 +110,31 @@ func TestToValueInterface(t *testing.T) {
 		t.Error("Nested field Uint should have been removed")
 	}
 }
+
+func TestToValueInterfacePtr(t *testing.T) {
+	filter := New(
+		RemoveFieldFilter(regexp.MustCompile("^Complex.*$")),
+		RemoveFieldFilter(regexp.MustCompile("^Func$")),
+		RemoveFieldFilter(regexp.MustCompile("^Chan*$")))
+	orig := SimpleStruct{
+		Interface: SimpleStruct{
+			Interface: 42,
+		},
+		Decoded:    StrContainer{Value: "test string"},
+		DecodedPtr: &StrContainer{Value: "test string ptr"},
+	}
+	filtered, err := filter.Convert(orig)
+	if err != nil {
+		t.Fatal(err)
+	}
+	filteredValue := reflect.ValueOf(filtered)
+	if !filteredValue.FieldByName("Decoded").IsValid() {
+		t.Error("Top level field Decoded should be valued")
+	}
+	if !filteredValue.FieldByName("DecodedPtr").IsValid() {
+		t.Error("Top level field DecodedPtr should be valued")
+	}
+	if filteredValue.FieldByName("DecodedPtr").IsZero() {
+		t.Error("Top level field DecodedPtr should have be untouched")
+	}
+}

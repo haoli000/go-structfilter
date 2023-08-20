@@ -101,7 +101,10 @@ func (t *T) convertValue(
 	case reflect.Ptr, reflect.Slice, reflect.Map:
 		if !origValue.IsNil() {
 			seenPointers[unsafe.Pointer(origValue.Pointer())] = filteredValue
-			return t.convertPointer(seenPointers, origValue, filteredValue)
+			err := t.convertPointer(seenPointers, origValue, filteredValue)
+			if err != nil {
+				return err
+			}
 		}
 	default:
 		filteredValue.Set(origValue)

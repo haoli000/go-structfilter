@@ -1,5 +1,9 @@
 package structfilter
 
+type StrContainer struct {
+	Value string
+}
+
 // SimpleStruct is a simple, non-recursive structure type for testing.
 type SimpleStruct struct {
 	Bool       bool
@@ -27,6 +31,8 @@ type SimpleStruct struct {
 	Slice      []int
 	String     string
 	Struct     struct{}
+	Decoded    interface{}
+	DecodedPtr interface{}
 }
 
 // StructWithUnexportedFields is a structure with some unexported fields for

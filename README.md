@@ -1,7 +1,13 @@
 # structfilter
 
-![](https://github.com/TheCount/go-structfilter/workflows/CI/badge.svg)
-[![Documentation](https://godoc.org/github.com/TheCount/go-structfilter/structfilter?status.svg)](https://godoc.org/github.com/TheCount/go-structfilter/structfilter)
+![](https://github.com/haoli000/go-structfilter/workflows/CI/badge.svg)
+[![Documentation](https://godoc.org/github.com/haoli000/go-structfilter/structfilter?status.svg)](https://godoc.org/github.com/haoli000/go-structfilter/structfilter)
+
+## Info
+This is a fork of the original [structfilter](https://github.com/TheCount/go-structfilter), with the following changes:
+* Fix struct field of interface{} to Ptr not copied
+
+# Original Doc:
 
 structfilter is a Go package for filtering out structure fields and/or changing structure tags on the fly.
 
@@ -10,12 +16,12 @@ This package is useful for censoring sensitive data before publishing it (e. g.
 ## Install
 
 ```sh
-go get github.com/TheCount/go-structfilter/structfilter
+go get github.com/haoli000/go-structfilter/structfilter
 ```
 
 ## Usage
 
-For the detailed API, see the [Documentation](https://godoc.org/github.com/TheCount/go-structfilter/structfilter).
+For the detailed API, see the [Documentation](https://godoc.org/github.com/haoli000/go-structfilter/structfilter).
 
 In the following example, you will learn how to use the structfilter package to filter out sensitive password information from a user database and prepare it for marshalling to JSON.
 
@@ -81,7 +87,7 @@ This will print the following output to the console:
 ]
 ```
 
-Check out the [complete example here](https://github.com/TheCount/go-structfilter/blob/master/structfilter/examples/userdbjson.go)!
+Check out the [complete example here](https://github.com/haoli000/go-structfilter/blob/master/structfilter/examples/userdbjson.go)!
 
 ## Restrictions
 
